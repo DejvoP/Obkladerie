@@ -20,15 +20,6 @@ export function About() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/55 via-transparent to-transparent" />
-            <div className="absolute right-0 bottom-0 left-0 p-6 sm:p-8">
-              <p className="text-[11px] font-medium tracking-[0.22em] text-accent uppercase">
-                Showroom · Sklad
-              </p>
-              <p className="mt-2 font-serif text-2xl text-white sm:text-3xl">
-                Pardubice
-              </p>
-            </div>
           </div>
         </Reveal>
 
