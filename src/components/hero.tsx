@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useInquiry } from "@/components/inquiry-provider";
+import { Reveal } from "@/components/reveal";
 
 export function Hero() {
   const { openInquiry } = useInquiry();
@@ -19,19 +20,30 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-charcoal/10" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-content flex-col justify-center px-5 py-16 lg:px-8">
-        <h1 className="max-w-5xl font-serif text-7xl leading-[1.02] text-white sm:text-8xl lg:text-[7.5rem]">
+        <Reveal as="h1" variant="up" immediate className="max-w-5xl font-serif text-7xl leading-[1.02] text-white sm:text-8xl lg:text-[7.5rem]">
           Povrchy,
           <br />
           které tvoří
           <br />
           prostor.
-        </h1>
-        <p className="mt-8 max-w-lg text-lg leading-8 text-dark-text">
+        </Reveal>
+        <Reveal
+          as="p"
+          variant="fade"
+          immediate
+          delay={140}
+          className="mt-8 max-w-lg text-lg leading-8 text-dark-text"
+        >
           Nadčasové materiály pro moderní interiéry i exteriéry.
           Pomůžeme vám vybrat obklady a dlažby, které sedí k prostoru,
           světlu i způsobu bydlení - od koupelny po terasu.
-        </p>
-        <div className="mt-10 flex flex-wrap items-center gap-4">
+        </Reveal>
+        <Reveal
+          variant="up"
+          immediate
+          delay={260}
+          className="mt-10 flex flex-wrap items-center gap-4"
+        >
           <a
             href="#katalog"
             className="inline-flex bg-accent px-7 py-3.5 text-base font-medium text-charcoal transition hover:bg-accent-hover"
@@ -41,11 +53,11 @@ export function Hero() {
           <button
             type="button"
             onClick={() => openInquiry()}
-            className="inline-flex cursor-pointer bg-white px-7 py-3.5 text-base font-medium text-charcoal transition hover:bg-white/90"
+            className="inline-flex bg-white px-7 py-3.5 text-base font-medium text-charcoal transition hover:bg-white/90"
           >
             Poptat se
           </button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

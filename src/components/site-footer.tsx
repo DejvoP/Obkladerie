@@ -1,18 +1,19 @@
 import { Logo } from "@/components/logo";
+import { Reveal } from "@/components/reveal";
 
 export function SiteFooter() {
   return (
     <footer id="kontakt" className="scroll-mt-24 bg-charcoal text-white">
       <div className="mx-auto grid w-full max-w-content gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        <div>
+        <Reveal variant="up">
           <a href="/" className="inline-flex items-center" aria-label="Obkladérie">
             <Logo className="h-9 w-auto" variant="inverted" />
           </a>
           <p className="mt-4 max-w-xs text-sm leading-6 text-dark-text">
             Kvalitní obklady a dlažby pro moderní prostory.
           </p>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal variant="up" delay={80}>
           <p className="text-sm font-medium text-white">Produkty</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
             <li>
@@ -36,8 +37,8 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal variant="up" delay={160}>
           <p className="text-sm font-medium text-white">Studio</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
             <li>
@@ -56,8 +57,8 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal variant="up" delay={240}>
           <p className="text-sm font-medium text-white">Kontakt</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
             <li>RemodelTO s.r.o.</li>
@@ -76,10 +77,14 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
-        </div>
+        </Reveal>
       </div>
       <div className="mx-auto w-full max-w-content px-5 lg:px-8">
-        <div className="flex items-center justify-between gap-4 border-t border-white/10 py-5 text-xs text-dark-text">
+        <Reveal
+          variant="fade"
+          delay={100}
+          className="flex items-center justify-between gap-4 border-t border-white/10 py-5 text-xs text-dark-text"
+        >
           <p>© 2026 Obkladérie. Všechna práva vyhrazena.</p>
           <a
             href="https://www.rezit.cz"
@@ -101,7 +106,7 @@ export function SiteFooter() {
               className="col-start-1 row-start-1 h-7 w-auto max-w-[9rem] object-contain object-right opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
             />
           </a>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

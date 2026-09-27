@@ -84,8 +84,8 @@ export function AdminInquiries() {
         Poptávky
       </h1>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+        <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 sm:snap-none">
           {filters.map((item) => {
             const active = filter === item.key;
             const Icon = item.icon;
@@ -95,7 +95,7 @@ export function AdminInquiries() {
                 key={item.key}
                 type="button"
                 onClick={() => setFilter(item.key)}
-                className={`inline-flex cursor-pointer items-center gap-2 border px-3.5 py-2 text-sm font-medium transition ${
+                className={`inline-flex shrink-0 snap-start cursor-pointer items-center gap-2 border px-3.5 py-2 text-sm font-medium transition sm:shrink ${
                   active
                     ? "border-charcoal bg-charcoal text-white"
                     : "border-line bg-white text-charcoal hover:border-charcoal"

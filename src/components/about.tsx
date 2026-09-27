@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal } from "@/components/reveal";
 
 const stats = [
   { value: "15", suffix: "+", label: "Let s materiály" },
@@ -10,7 +11,7 @@ export function About() {
   return (
     <section id="o-nas" className="scroll-mt-24 bg-white">
       <div className="mx-auto grid w-full max-w-content items-center gap-10 px-5 py-16 lg:grid-cols-2 lg:gap-20 lg:px-8 lg:py-24">
-        <div className="relative w-full">
+        <Reveal variant="left" className="relative w-full">
           <div className="relative aspect-[4/5] overflow-hidden bg-charcoal sm:aspect-[5/6] lg:aspect-square">
             <Image
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80"
@@ -29,26 +30,41 @@ export function About() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         <div className="w-full lg:py-4">
-          <h2 className="font-serif text-5xl leading-[1.05] text-charcoal sm:text-6xl lg:text-7xl">
+          <Reveal as="h2" variant="right" className="font-serif text-5xl leading-[1.05] text-charcoal sm:text-6xl lg:text-7xl">
             Detaily tvoří prostor
-          </h2>
+          </Reveal>
 
-          <p className="mt-6 text-base leading-8 text-muted sm:text-lg">
+          <Reveal
+            as="p"
+            variant="fade"
+            delay={100}
+            className="mt-6 text-base leading-8 text-muted sm:text-lg"
+          >
             Obkladérie spojuje showroom a sklad. Neprodáváme jen katalog -
             pomáháme vybrat povrch, který sedí ke světlu, provozu i
             architektuře projektu.
-          </p>
-          <p className="mt-4 text-base leading-8 text-muted sm:text-lg">
+          </Reveal>
+          <Reveal
+            as="p"
+            variant="fade"
+            delay={180}
+            className="mt-4 text-base leading-8 text-muted sm:text-lg"
+          >
             Přijďte si materiály osahat naživo. Od jemného kamene po robustní
             dlažbu máme vzorky připravené k porovnání ještě před realizací.
-          </p>
+          </Reveal>
 
           <div className="mt-10 flex w-full justify-between gap-6 border-t border-line pt-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+            {stats.map((stat, index) => (
+              <Reveal
+                key={stat.label}
+                variant="up"
+                delay={120 + index * 100}
+                className="text-center"
+              >
                 <p className="flex items-center justify-center font-sans text-5xl leading-none text-charcoal sm:text-6xl lg:text-7xl">
                   <span>{stat.value}</span>
                   {stat.suffix ? (
@@ -58,7 +74,7 @@ export function About() {
                 <p className="mt-2 text-xs leading-5 text-muted sm:text-sm">
                   {stat.label}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

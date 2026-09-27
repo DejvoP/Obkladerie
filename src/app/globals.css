@@ -32,6 +32,36 @@ body {
   font-family: var(--font-outfit), sans-serif;
 }
 
+a,
+button,
+summary,
+label,
+select,
+[role="button"],
+[role="menuitem"],
+[role="option"],
+[role="tab"],
+[role="link"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"],
+input[type="color"],
+input[type="image"] {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
 ::selection {
   background: #c9b29a;
   color: #1f1f1f;
@@ -94,5 +124,51 @@ body {
 
 .search-item-enter {
   animation: search-item-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.reveal {
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay),
+    filter 0.75s ease var(--reveal-delay);
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  transform: translate3d(0, 1.75rem, 0);
+}
+
+.reveal-left {
+  transform: translate3d(-1.5rem, 0, 0);
+}
+
+.reveal-right {
+  transform: translate3d(1.5rem, 0, 0);
+}
+
+.reveal-scale {
+  transform: scale(0.96);
+  filter: blur(2px);
+}
+
+.reveal-fade {
+  transform: none;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
 }
 

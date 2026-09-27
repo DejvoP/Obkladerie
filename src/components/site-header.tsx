@@ -39,6 +39,7 @@ export function SiteHeader({
   const onHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [scrolled, setScrolled] = useState(false);
@@ -115,6 +116,25 @@ export function SiteHeader({
   }, [forceSolid]);
 
   useEffect(() => {
+    if (!open) setMobileProductsOpen(false);
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (event: PointerEvent) => {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+        setMobileProductsOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [open]);
+
+  useEffect(() => {
     const locked = open || searchOpen;
     document.body.style.overflow = locked ? "hidden" : "";
     const onKey = (event: KeyboardEvent) => {
@@ -122,6 +142,7 @@ export function SiteHeader({
         closeSearch();
         setOpen(false);
         setProductsOpen(false);
+        setMobileProductsOpen(false);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -154,13 +175,30 @@ export function SiteHeader({
 
   return (
     <>
+      {open ? (
+        <button
+          type="button"
+          aria-label="Zavřít menu"
+          className="fixed inset-0 z-40 bg-charcoal/40 md:hidden"
+          onClick={() => {
+            setOpen(false);
+            setMobileProductsOpen(false);
+          }}
+        />
+      ) : null}
+
       <header
         ref={headerRef}
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
           solid ? "bg-[#ffffff]" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-20 w-full max-w-content items-stretch justify-between px-5 lg:px-8">
+        <div className="mx-auto w-full max-w-content px-5 lg:px-8">
+          <div
+            className={`flex h-20 w-full items-stretch justify-between ${
+              solid ? "border-b border-line" : ""
+            }`}
+          >
           <a href="/" className="inline-flex items-center" aria-label="Obkladérie">
             <Logo
               className="h-9 w-auto"
@@ -310,45 +348,80 @@ export function SiteHeader({
               </span>
             </button>
           </div>
+          </div>
         </div>
 
         {open ? (
-          <div className="border-t border-line bg-white px-5 py-5 md:hidden">
-            <div className="flex flex-col gap-4 text-sm text-charcoal">
-              <div>
-                <p className="font-medium">Produkty</p>
-                <div className="mt-2 flex flex-col gap-2 border-l border-line pl-3">
-                  {productLinks.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+          <div className="max-h-[calc(100svh-5rem)] overflow-y-auto border-t border-line bg-[#ffffff] md:hidden">
+            {mobileProductsOpen ? (
+              <div className="flex flex-col text-[17px] text-charcoal">
+                <button
+                  type="button"
+                  onClick={() => setMobileProductsOpen(false)}
+                  className="flex w-full items-center gap-2 px-5 py-4 text-left text-[15px] text-muted"
+                >
+                  <span aria-hidden>&lt;</span>
+                  Zpět
+                </button>
+                {productLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => {
+                      setMobileProductsOpen(false);
+                      setOpen(false);
+                    }}
+                    className="px-5 py-4 transition-colors active:bg-soft"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-col text-[17px] text-charcoal">
+                <button
+                  type="button"
+                  onClick={() => setMobileProductsOpen(true)}
+                  className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors active:bg-soft"
+                >
+                  <span>Produkty</span>
+                  <svg
+                    viewBox="0 0 12 12"
+                    className="size-3.5 -rotate-90 fill-current text-muted"
+                    aria-hidden
+                  >
+                    <path
+                      d="M2.2 4.2 6 8l3.8-3.8"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                  </svg>
+                </button>
+                {nav.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="px-5 py-4 transition-colors active:bg-soft"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <div className="px-5 py-5">
+                  <button
+                    type="button"
+                    className="w-full bg-accent px-4 py-3.5 text-[15px] font-medium text-charcoal transition hover:bg-accent-hover"
+                    onClick={() => {
+                      setOpen(false);
+                      openInquiry();
+                    }}
+                  >
+                    Poptávka
+                  </button>
                 </div>
               </div>
-              {nav.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <button
-                type="button"
-                className="mt-2 w-fit bg-accent px-4 py-2.5 text-sm font-medium text-charcoal transition hover:bg-accent-hover"
-                onClick={() => {
-                  setOpen(false);
-                  openInquiry();
-                }}
-              >
-                Poptávka
-              </button>
-            </div>
+            )}
           </div>
         ) : null}
       </header>
