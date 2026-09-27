@@ -1,0 +1,467 @@
+[
+  {
+    "slug": "travertin-beige",
+    "name": "Travertin Beige",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 890,
+    "unit": "Kč/m²",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#C9B29A",
+      "#8A7F72"
+    ]
+  },
+  {
+    "slug": "marble-white",
+    "name": "Marble White",
+    "kind": "Dlažba · Lesklý povrch",
+    "category": "dlazby",
+    "typeName": "Lesklý povrch",
+    "amount": 1240,
+    "unit": "Kč/m²",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F5F1EC",
+      "#D6D2CD"
+    ]
+  },
+  {
+    "slug": "concrete-grey",
+    "name": "Concrete Grey",
+    "kind": "Dlažba · Matný povrch",
+    "category": "dlazby",
+    "typeName": "Matný povrch",
+    "amount": 760,
+    "unit": "Kč/m²",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#9A9A9A",
+      "#6F6F6F"
+    ]
+  },
+  {
+    "slug": "stone-sand",
+    "name": "Stone Sand",
+    "kind": "Obklad · Strukturovaný povrch",
+    "category": "obklady",
+    "typeName": "Strukturovaný povrch",
+    "amount": 980,
+    "unit": "Kč/m²",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#D4C4B0",
+      "#A89078"
+    ]
+  },
+  {
+    "slug": "terrazzo-light",
+    "name": "Terrazzo Light",
+    "kind": "Dlažba · Mramorový efekt",
+    "category": "dlazby",
+    "typeName": "Mramorový efekt",
+    "amount": 1150,
+    "unit": "Kč/m²",
+    "featured": true,
+    "image": "https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#E8E2DA",
+      "#B8A99A"
+    ]
+  },
+  {
+    "slug": "oak-fluted",
+    "name": "Oak Fluted",
+    "kind": "Obklad · Dřevodekor",
+    "category": "obklady",
+    "typeName": "Dřevodekor",
+    "amount": 1090,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#B8956A",
+      "#7A5C3E"
+    ]
+  },
+  {
+    "slug": "slate-dark",
+    "name": "Slate Dark",
+    "kind": "Dlažba · Matný povrch",
+    "category": "dlazby",
+    "typeName": "Matný povrch",
+    "amount": 920,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#4A4A4A",
+      "#2A2A2A"
+    ]
+  },
+  {
+    "slug": "calacatta-soft",
+    "name": "Calacatta Soft",
+    "kind": "Obklad · Lesklý povrch",
+    "category": "obklady",
+    "typeName": "Lesklý povrch",
+    "amount": 1380,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F7F4EF",
+      "#E0D8CE"
+    ]
+  },
+  {
+    "slug": "basalt-graphite",
+    "name": "Basalt Graphite",
+    "kind": "Venkovní dlažba · Matný povrch",
+    "category": "venkovni",
+    "typeName": "Matný povrch",
+    "amount": 1050,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#5C5C5C",
+      "#3D3D3D"
+    ]
+  },
+  {
+    "slug": "lime-wash",
+    "name": "Lime Wash",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 840,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#EDE6DC",
+      "#C2B8AA"
+    ]
+  },
+  {
+    "slug": "quartzite-pearl",
+    "name": "Quartzite Pearl",
+    "kind": "Dlažba · Lesklý povrch",
+    "category": "dlazby",
+    "typeName": "Lesklý povrch",
+    "amount": 1290,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#E8E8E8",
+      "#B0B0B0"
+    ]
+  },
+  {
+    "slug": "terracotta-raw",
+    "name": "Terracotta Raw",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 870,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#C4785A",
+      "#8B4A32"
+    ]
+  },
+  {
+    "slug": "granite-ash",
+    "name": "Granite Ash",
+    "kind": "Dlažba · Strukturovaný povrch",
+    "category": "dlazby",
+    "typeName": "Strukturovaný povrch",
+    "amount": 990,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#8E8E8E",
+      "#5A5A5A"
+    ]
+  },
+  {
+    "slug": "ivory-silk",
+    "name": "Ivory Silk",
+    "kind": "Obklad · Hedvábný povrch",
+    "category": "obklady",
+    "typeName": "Hedvábný povrch",
+    "amount": 1180,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F3EDE4",
+      "#D2C6B6"
+    ]
+  },
+  {
+    "slug": "cement-soft",
+    "name": "Cement Soft",
+    "kind": "Dlažba · Matný povrch",
+    "category": "dlazby",
+    "typeName": "Matný povrch",
+    "amount": 720,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#C8C4BE",
+      "#8F8A84"
+    ]
+  },
+  {
+    "slug": "travertin-noce",
+    "name": "Travertin Noce",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 910,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#B89A7A",
+      "#7A6248"
+    ]
+  },
+  {
+    "slug": "marble-grey",
+    "name": "Marble Grey",
+    "kind": "Dlažba · Lesklý povrch",
+    "category": "dlazby",
+    "typeName": "Lesklý povrch",
+    "amount": 1210,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#D0D0D0",
+      "#7E7E7E"
+    ]
+  },
+  {
+    "slug": "sandstone-warm",
+    "name": "Sandstone Warm",
+    "kind": "Venkovní dlažba · Matný povrch",
+    "category": "venkovni",
+    "typeName": "Matný povrch",
+    "amount": 1020,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#D9C3A5",
+      "#A68B6A"
+    ]
+  },
+  {
+    "slug": "onyx-cream",
+    "name": "Onyx Cream",
+    "kind": "Obklad · Prosvětlený povrch",
+    "category": "obklady",
+    "typeName": "Prosvětlený povrch",
+    "amount": 1460,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F0E6D4",
+      "#C9B29A"
+    ]
+  },
+  {
+    "slug": "pietra-grey",
+    "name": "Pietra Grey",
+    "kind": "Dlažba · Matný povrch",
+    "category": "dlazby",
+    "typeName": "Matný povrch",
+    "amount": 1080,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#6E6E6E",
+      "#3F3F3F"
+    ]
+  },
+  {
+    "slug": "microcement-white",
+    "name": "Microcement White",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 950,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F5F5F5",
+      "#C9C9C9"
+    ]
+  },
+  {
+    "slug": "walnut-line",
+    "name": "Walnut Line",
+    "kind": "Obklad · Dřevodekor",
+    "category": "obklady",
+    "typeName": "Dřevodekor",
+    "amount": 1130,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#8B6B4A",
+      "#5C4030"
+    ]
+  },
+  {
+    "slug": "porcelain-soft",
+    "name": "Porcelain Soft",
+    "kind": "Dlažba · Matný povrch",
+    "category": "dlazby",
+    "typeName": "Matný povrch",
+    "amount": 790,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#E6E1DA",
+      "#AFA8A0"
+    ]
+  },
+  {
+    "slug": "limestone-pale",
+    "name": "Limestone Pale",
+    "kind": "Obklad · Matný povrch",
+    "category": "obklady",
+    "typeName": "Matný povrch",
+    "amount": 860,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#E8DFD2",
+      "#B7AA98"
+    ]
+  },
+  {
+    "slug": "nero-marquina",
+    "name": "Nero Marquina",
+    "kind": "Dlažba · Lesklý povrch",
+    "category": "dlazby",
+    "typeName": "Lesklý povrch",
+    "amount": 1520,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#2B2B2B",
+      "#1F1F1F"
+    ]
+  },
+  {
+    "slug": "terrace-basalt",
+    "name": "Terrace Basalt",
+    "kind": "Venkovní dlažba · Strukturovaný povrch",
+    "category": "venkovni",
+    "typeName": "Strukturovaný povrch",
+    "amount": 1120,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#6A6A6A",
+      "#3A3A3A"
+    ]
+  },
+  {
+    "slug": "outdoor-sand",
+    "name": "Outdoor Sand",
+    "kind": "Venkovní dlažba · Matný povrch",
+    "category": "venkovni",
+    "typeName": "Matný povrch",
+    "amount": 980,
+    "unit": "Kč/m²",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#D2C0A8",
+      "#9A8268"
+    ]
+  },
+  {
+    "slug": "hlinikova-lista",
+    "name": "Hliníková lišta",
+    "kind": "Doplněk · Profil",
+    "category": "doplnky",
+    "typeName": "Profil",
+    "amount": 189,
+    "unit": "Kč/ks",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#C0C0C0",
+      "#8A8A8A"
+    ]
+  },
+  {
+    "slug": "dilatacni-profil",
+    "name": "Dilatační profil",
+    "kind": "Doplněk · Profil",
+    "category": "doplnky",
+    "typeName": "Profil",
+    "amount": 249,
+    "unit": "Kč/ks",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#D6D2CD",
+      "#6F6F6F"
+    ]
+  },
+  {
+    "slug": "soklova-lista-stone",
+    "name": "Soklová lišta Stone",
+    "kind": "Doplněk · Sokl",
+    "category": "doplnky",
+    "typeName": "Sokl",
+    "amount": 320,
+    "unit": "Kč/m",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#C9B29A",
+      "#8A7F72"
+    ]
+  },
+  {
+    "slug": "sparovaci-hmota-soft",
+    "name": "Spárovací hmota Soft",
+    "kind": "Doplněk · Spárování",
+    "category": "doplnky",
+    "typeName": "Spárování",
+    "amount": 159,
+    "unit": "Kč/kg",
+    "featured": false,
+    "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80",
+    "colors": [
+      "#F5F1EC",
+      "#D6D2CD"
+    ]
+  }
+]

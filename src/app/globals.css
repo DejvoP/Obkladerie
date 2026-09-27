@@ -2,25 +2,97 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f1f1f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-charcoal: #1f1f1f;
+  --color-accent: #c9b29a;
+  --color-accent-hover: #b9a087;
+  --color-white: #ffffff;
+  --color-soft: #f5f1ec;
+  --color-muted: #6f6f6f;
+  --color-line: #e7e2dc;
+  --color-dark-text: #d6d2cd;
+  --font-sans: var(--font-outfit);
+  --font-serif: var(--font-playfair);
+  --max-width-content: 100rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-outfit), sans-serif;
 }
+
+::selection {
+  background: #c9b29a;
+  color: #1f1f1f;
+}
+
+@keyframes search-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes search-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes search-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes search-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-overlay-enter {
+  animation: search-overlay-in 220ms ease-out both;
+}
+
+.search-panel-enter {
+  animation: search-panel-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.search-dropdown-enter {
+  animation: search-dropdown-in 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: top center;
+}
+
+.search-item-enter {
+  animation: search-item-in 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
