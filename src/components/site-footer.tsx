@@ -10,7 +10,7 @@ export function SiteFooter() {
             <Logo className="h-9 w-auto" variant="inverted" />
           </a>
           <p className="mt-4 max-w-xs text-sm leading-6 text-dark-text">
-            Kvalitní obklady a dlažby pro moderní prostory.
+            Kvalitní italská keramika za outletové ceny.
           </p>
         </Reveal>
         <Reveal variant="up" delay={80}>

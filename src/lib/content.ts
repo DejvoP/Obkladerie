@@ -17,7 +17,7 @@ export const categoryMeta: Record<
   },
   dlazby: {
     title: "Dlažby",
-    description: "Pro moderní a odolné prostory",
+    description: "Odolné povrchy pro interiér",
   },
   venkovni: {
     title: "Venkovní dlažby",
@@ -40,7 +40,7 @@ export const catalog = [
   {
     title: "Dlažby",
     slug: "dlazby" as const,
-    subtitle: "Pro moderní a odolné prostory",
+    subtitle: "Odolné povrchy pro interiér",
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
   },

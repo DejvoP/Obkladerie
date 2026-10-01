@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import {
   catalog as mockCatalog,
@@ -17,6 +16,7 @@ import {
   ProductFilterModal,
   type FilterValues,
 } from "@/components/product-filter-modal";
+import { ProductCard } from "@/components/product-card";
 
 type CatalogChip = {
   title: string;
@@ -182,38 +182,10 @@ export function ProductsListing({
         ) : (
           <div className="mt-4 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-3 lg:grid-cols-5">
             {filtered.map((product) => (
-              <a
+              <ProductCard
                 key={product.id ?? getProductSlug(product)}
-                href={`/produkty/${getProductSlug(product)}`}
-                className="group block"
-              >
-                <div className="relative aspect-square overflow-hidden bg-soft">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    sizes="(min-width: 1024px) 18vw, (min-width: 768px) 30vw, 45vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <h2 className="mt-4 text-base font-medium text-charcoal sm:text-lg">
-                  {product.name}
-                </h2>
-                <p className="mt-1 text-sm text-muted">{product.kind}</p>
-                <div className="mt-3 flex gap-1.5">
-                  {product.colors.map((color) => (
-                    <span
-                      key={color}
-                      className="size-3.5 border border-line"
-                      style={{ backgroundColor: color }}
-                      aria-hidden
-                    />
-                  ))}
-                </div>
-                <p className="mt-3 text-sm font-medium text-charcoal sm:text-base">
-                  {product.price}
-                </p>
-              </a>
+                product={product}
+              />
             ))}
           </div>
         )}

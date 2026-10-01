@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowIcon } from "@/components/arrow-icon";
+import { ProductCard } from "@/components/product-card";
 import { useInquiry } from "@/components/inquiry-provider";
 import {
   getCategoryLabel,
@@ -270,38 +271,11 @@ export function ProductDetail({
 
             <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4">
               {related.map((item) => (
-                <a
+                <ProductCard
                   key={item.id ?? getProductSlug(item)}
-                  href={`/produkty/${getProductSlug(item)}`}
-                  className="group block"
-                >
-                  <div className="relative aspect-square overflow-hidden bg-soft">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      sizes="(min-width: 768px) 22vw, 45vw"
-                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <h3 className="mt-4 text-base font-medium text-charcoal sm:text-lg">
-                    {item.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted">{item.kind}</p>
-                  <div className="mt-3 flex gap-1.5">
-                    {item.colors.map((color) => (
-                      <span
-                        key={color}
-                        className="size-3.5 border border-line"
-                        style={{ backgroundColor: color }}
-                        aria-hidden
-                      />
-                    ))}
-                  </div>
-                  <p className="mt-3 text-sm font-medium text-charcoal">
-                    {item.price}
-                  </p>
-                </a>
+                  product={item}
+                  sizes="(min-width: 768px) 22vw, 45vw"
+                />
               ))}
             </div>
           </div>
