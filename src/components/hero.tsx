@@ -38,7 +38,7 @@ export function Hero() {
           className="mt-8 max-w-xl text-lg leading-8 text-dark-text"
         >
           Kvalitní keramika od renomovaných italských výrobců za ceny, které
-          vznikají doprodejem kolekcí - ne kompromisem v kvalitě.
+          vznikají z předchozích kolekcí - ne kompromisem v kvalitě.
         </Reveal>
         <Reveal
           as="p"

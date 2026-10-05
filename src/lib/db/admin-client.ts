@@ -36,6 +36,72 @@ export type AdminCategoryInput = {
   newImageFile?: File | null;
 };
 
+function friendlyDbError(message: string) {
+  if (
+    message.includes("categories_slug_key") ||
+    (message.includes("duplicate key") && message.includes("slug"))
+  ) {
+    return "Kategorie s tímto názvem už existuje. Uprav existující místo vytváření nové.";
+  }
+  if (
+    message.includes("foreign key") ||
+    message.includes("violates foreign key constraint")
+  ) {
+    return "Kategorii nejde smazat, dokud v ní jsou produkty. Nejdřív produkty přesuň nebo smaž.";
+  }
+  return message;
+}
+
+type SlugClient = ReturnType<typeof createClient>;
+
+async function ensureUniqueCategorySlug(
+  supabase: SlugClient,
+  baseSlug: string,
+  excludeId?: string,
+) {
+  const root = baseSlug || "kategorie";
+  for (let n = 0; n < 50; n += 1) {
+    const candidate = n === 0 ? root : `${root}-${n + 1}`;
+    let query = supabase
+      .from("categories")
+      .select("id")
+      .eq("slug", candidate);
+    if (excludeId) query = query.neq("id", excludeId);
+    const { data } = await query.maybeSingle();
+    if (!data) return candidate;
+  }
+  throw new Error("Nepodařilo se vytvořit unikátní adresu kategorie.");
+}
+
+/** If a category was renamed but kept an old slug, free that slug for reuse. */
+async function healStaleCategorySlug(
+  supabase: SlugClient,
+  wantedSlug: string,
+  excludeId?: string,
+) {
+  let query = supabase
+    .from("categories")
+    .select("id, title, slug")
+    .eq("slug", wantedSlug);
+  if (excludeId) query = query.neq("id", excludeId);
+  const { data: occupant } = await query.maybeSingle();
+  if (!occupant) return;
+
+  const rightful = slugifyProductName(occupant.title);
+  if (!rightful || rightful === occupant.slug) return;
+
+  const healed = await ensureUniqueCategorySlug(
+    supabase,
+    rightful,
+    occupant.id,
+  );
+  const { error } = await supabase
+    .from("categories")
+    .update({ slug: healed })
+    .eq("id", occupant.id);
+  if (error) throw new Error(friendlyDbError(error.message));
+}
+
 function composeKind(categorySlug: string, typeName: string) {
   const prefix = KIND_PREFIX[categorySlug] ?? "Produkt";
   return `${prefix} · ${typeName}`;
@@ -190,9 +256,10 @@ export async function deleteProduct(id: string) {
 
 export async function saveCategory(input: AdminCategoryInput) {
   const supabase = createClient();
-  const slug =
-    input.slug?.trim() ||
-    slugifyProductName(input.title);
+  const baseSlug = slugifyProductName(input.title);
+  if (!baseSlug) {
+    throw new Error("Zadej platný název kategorie.");
+  }
 
   let imageUrl = input.existingImageUrl ?? "";
   if (input.newImageFile) {
@@ -201,6 +268,30 @@ export async function saveCategory(input: AdminCategoryInput) {
   if (!imageUrl) {
     throw new Error("Přidej obrázek kategorie.");
   }
+
+  // Free slug if another category was renamed but still holds this slug
+  await healStaleCategorySlug(supabase, baseSlug, input.id);
+
+  // Same title already taken by another category?
+  {
+    let query = supabase
+      .from("categories")
+      .select("id, title")
+      .eq("slug", baseSlug);
+    if (input.id) query = query.neq("id", input.id);
+    const { data: sameName } = await query.maybeSingle();
+    if (sameName && slugifyProductName(sameName.title) === baseSlug) {
+      throw new Error(
+        `Kategorie „${sameName.title}“ už existuje. Otevři ji v seznamu a uprav, místo vytváření nové.`,
+      );
+    }
+  }
+
+  const slug = await ensureUniqueCategorySlug(
+    supabase,
+    baseSlug,
+    input.id,
+  );
 
   if (input.showInCatalog) {
     let query = supabase
@@ -234,14 +325,18 @@ export async function saveCategory(input: AdminCategoryInput) {
       .from("categories")
       .update(payload)
       .eq("id", categoryId);
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(friendlyDbError(error.message));
   } else {
     const { data, error } = await supabase
       .from("categories")
       .insert(payload)
       .select("id")
       .single();
-    if (error || !data) throw new Error(error?.message ?? "Uložení selhalo.");
+    if (error || !data) {
+      throw new Error(
+        friendlyDbError(error?.message ?? "Uložení selhalo."),
+      );
+    }
     categoryId = data.id;
   }
 
@@ -294,7 +389,7 @@ export async function saveCategory(input: AdminCategoryInput) {
 export async function deleteCategory(id: string) {
   const supabase = createClient();
   const { error } = await supabase.from("categories").delete().eq("id", id);
-  if (error) throw new Error(error.message);
+  if (error) throw new Error(friendlyDbError(error.message));
 }
 
 export async function markInquiryDone(id: string) {

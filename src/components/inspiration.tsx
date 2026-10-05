@@ -37,7 +37,7 @@ export function Inspiration() {
                 className="mt-3 max-w-xl text-sm leading-6 text-dark-text sm:mt-5 sm:text-lg sm:leading-8"
               >
                 Nabízíme kvalitní keramiku renomovaných, zejména italských
-                výrobců z předchozích kolekcí a doprodejů skladových zásob.
+                výrobců z předchozích kolekcí a skladových zásob.
                 Stejná kvalita, výrazně lepší cena.
               </Reveal>
               <Reveal

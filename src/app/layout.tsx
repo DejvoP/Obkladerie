@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Obkladérie - prémiové obklady za outletové ceny",
   description:
-    "Kvalitní keramika od renomovaných italských výrobců z doprodejů kolekcí. Stejná kvalita, výrazně lepší cena. Dodání 7-14 dní.",
+    "Kvalitní keramika od renomovaných italských výrobců z předchozích kolekcí. Stejná kvalita, výrazně lepší cena. Dodání 7-14 dní.",
 };
 
 const ignoreExtensionHydrationNoise = `

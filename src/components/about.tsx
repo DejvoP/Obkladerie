@@ -8,7 +8,7 @@ const argumentsList = [
   },
   {
     title: "Outletové ceny",
-    text: "Výhodná cena díky doprodeji kolekcí, ne kvůli horší kvalitě.",
+    text: "Výhodná cena díky předchozím kolekcím, ne kvůli horší kvalitě.",
   },
   {
     title: "7-14 dní",
