@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -30,6 +31,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), sans-serif;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 a,
@@ -146,6 +149,13 @@ textarea:disabled,
 
 .reveal-right {
   transform: translate3d(1.5rem, 0, 0);
+}
+
+@media (max-width: 639px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translate3d(0, 1.25rem, 0);
+  }
 }
 
 .reveal-scale {

@@ -60,14 +60,14 @@ export function About() {
                 key={item.title}
                 variant="up"
                 delay={120 + index * 100}
-                className={`flex items-center justify-between gap-6 py-5 ${
+                className={`flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 ${
                   index < argumentsList.length - 1 ? "border-b border-line" : ""
                 }`}
               >
                 <p className="shrink-0 font-serif text-2xl text-charcoal sm:text-[1.65rem]">
                   {item.title}
                 </p>
-                <p className="min-w-0 text-right text-sm leading-6 text-muted whitespace-nowrap sm:text-[15px]">
+                <p className="min-w-0 text-sm leading-6 text-muted sm:text-right sm:text-[15px]">
                   {item.text}
                 </p>
               </Reveal>

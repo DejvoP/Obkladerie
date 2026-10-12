@@ -23,7 +23,7 @@ export async function SiteShell({
 
   return (
     <InquiryProvider initialProductName={inquiryProductName}>
-      <div className="min-h-full bg-white">
+      <div className="min-h-full max-w-[100vw] overflow-x-clip bg-white">
         <SiteHeader
           solid={solidHeader}
           products={products}

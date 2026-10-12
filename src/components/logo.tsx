@@ -22,7 +22,7 @@ export function Logo({
       width={280}
       height={56}
       priority={priority}
-      className={className}
+      className={`max-w-[min(11.5rem,55vw)] object-contain object-left ${className}`}
     />
   );
 }
