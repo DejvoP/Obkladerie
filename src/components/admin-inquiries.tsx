@@ -222,6 +222,27 @@ export function AdminInquiries() {
                         {inquiry.message}
                       </p>
                     ) : null}
+
+                    {inquiry.attachmentUrls && inquiry.attachmentUrls.length > 0 ? (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {inquiry.attachmentUrls.map((url) => (
+                          <a
+                            key={url}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative size-16 overflow-hidden border border-line bg-soft transition hover:border-charcoal"
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={url}
+                              alt="Příloha poptávky"
+                              className="size-full object-cover"
+                            />
+                          </a>
+                        ))}
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="flex shrink-0 items-center gap-2 self-start">

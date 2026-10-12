@@ -4,8 +4,8 @@ import { slugifyProductName, type CategorySlug } from "@/lib/content";
 const KIND_PREFIX: Record<string, string> = {
   obklady: "Obklad",
   dlazby: "Dlažba",
-  venkovni: "Venkovní dlažba",
-  doplnky: "Doplněk",
+  "betonove-sterky": "Betonová stěrka",
+  "epoxidove-sterky": "Epoxidová stěrka",
 };
 
 export type AdminProductInput = {
@@ -422,8 +422,45 @@ export async function markInquiriesSeen(ids: string[]) {
   if (error) throw new Error(error.message);
 }
 
+function inquiryAttachmentPaths(urls: string[] | null | undefined) {
+  if (!urls?.length) return [] as string[];
+  const paths: string[] = [];
+  for (const url of urls) {
+    const marker = "/storage/v1/object/public/media/";
+    const index = url.indexOf(marker);
+    if (index === -1) continue;
+    const path = decodeURIComponent(url.slice(index + marker.length));
+    if (path.startsWith("inquiries/")) paths.push(path);
+  }
+  return paths;
+}
+
+async function removeInquiryAttachments(
+  supabase: ReturnType<typeof createClient>,
+  urls: string[] | null | undefined,
+) {
+  const paths = inquiryAttachmentPaths(urls);
+  if (!paths.length) return;
+  const { error } = await supabase.storage.from("media").remove(paths);
+  if (error) {
+    console.error("[inquiries:storage]", error.message);
+  }
+}
+
 export async function deleteInquiry(id: string) {
   const supabase = createClient();
+  const { data, error: fetchError } = await supabase
+    .from("inquiries")
+    .select("attachment_urls")
+    .eq("id", id)
+    .maybeSingle();
+  if (fetchError) throw new Error(fetchError.message);
+
+  await removeInquiryAttachments(
+    supabase,
+    (data?.attachment_urls as string[] | null) ?? [],
+  );
+
   const { error } = await supabase.from("inquiries").delete().eq("id", id);
   if (error) throw new Error(error.message);
 }
@@ -431,6 +468,19 @@ export async function deleteInquiry(id: string) {
 export async function deleteInquiries(ids: string[]) {
   if (!ids.length) return;
   const supabase = createClient();
+  const { data, error: fetchError } = await supabase
+    .from("inquiries")
+    .select("id, attachment_urls")
+    .in("id", ids);
+  if (fetchError) throw new Error(fetchError.message);
+
+  for (const row of data ?? []) {
+    await removeInquiryAttachments(
+      supabase,
+      (row.attachment_urls as string[] | null) ?? [],
+    );
+  }
+
   const { error } = await supabase.from("inquiries").delete().in("id", ids);
   if (error) throw new Error(error.message);
 }

@@ -42,7 +42,8 @@ export function SiteHeader({
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(forceSolid);
+  const [scrollReady, setScrollReady] = useState(false);
   const [menuPos, setMenuPos] = useState({ top: 80, left: 0 });
   const { openInquiry } = useInquiry();
   const headerRef = useRef<HTMLElement>(null);
@@ -57,8 +58,8 @@ export function SiteHeader({
         : [
             { slug: "obklady", title: "Obklady" },
             { slug: "dlazby", title: "Dlažby" },
-            { slug: "venkovni", title: "Venkovní dlažby" },
-            { slug: "doplnky", title: "Doplňky" },
+            { slug: "betonove-sterky", title: "Betonové stěrky" },
+            { slug: "epoxidove-sterky", title: "Epoxidové stěrky" },
           ];
     for (const cat of cats) {
       links.push({
@@ -75,7 +76,9 @@ export function SiteHeader({
     { href: onHome ? "#kontakt" : "/#kontakt", label: "Kontakt" },
   ];
 
-  const solid = forceSolid || scrolled || open || productsOpen;
+  // Ignore scroll until after mount so SSR and first client paint match.
+  const solid =
+    forceSolid || open || productsOpen || (scrollReady && scrolled);
 
   const searchResults = useMemo(() => {
     const query = normalizeSearch(searchQuery.trim());
@@ -105,6 +108,7 @@ export function SiteHeader({
   };
 
   useEffect(() => {
+    setScrollReady(true);
     if (forceSolid) {
       setScrolled(true);
       return;

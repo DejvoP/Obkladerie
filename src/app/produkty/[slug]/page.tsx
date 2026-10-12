@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { ProductDetail } from "@/components/product-detail";
 import { ProductsListing } from "@/components/products-listing";
 import { SiteShell } from "@/components/site-shell";
-import { getCategoryLabel, type CategorySlug } from "@/lib/content";
+import { getCategoryLabel, getProductSlug, type CategorySlug } from "@/lib/content";
 import {
   fetchCategories,
   fetchProductBySlug,
   fetchProducts,
   fetchRelatedProducts,
 } from "@/lib/db/catalog";
+import {
+  breadcrumbJsonLd,
+  buildMetadata,
+  collectionJsonLd,
+  productJsonLd,
+} from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -20,27 +27,37 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
-  // Prefer product over category when slug collides
   const product = await fetchProductBySlug(slug);
   if (product) {
-    return {
-      title: `${product.name} - Obkladérie`,
-      description:
-        product.description?.trim() ||
-        `${product.kind}. ${product.price}`,
-    };
+    const title = `${product.name} - Obkladérie`;
+    const description =
+      product.description?.trim() ||
+      `${product.kind}. ${product.price}`;
+    return buildMetadata({
+      title,
+      description,
+      path: `/produkty/${getProductSlug(product)}`,
+      image: product.image,
+    });
   }
 
   const categories = await fetchCategories();
   const category = categories.find((item) => item.slug === slug);
   if (category) {
-    return {
+    return buildMetadata({
       title: `${category.title} - Obkladérie`,
       description: category.subtitle || getCategoryLabel(slug),
-    };
+      path: `/produkty/${category.slug}`,
+      image: category.image || "/hero.png",
+    });
   }
 
-  return { title: "Produkty - Obkladérie" };
+  return buildMetadata({
+    title: "Produkty - Obkladérie",
+    description: "Kompletní nabídka Obkladérie.",
+    path: `/produkty/${slug}`,
+    noIndex: true,
+  });
 }
 
 export default async function ProductsSlugPage({ params }: Props) {
@@ -54,8 +71,27 @@ export default async function ProductsSlugPage({ params }: Props) {
 
   if (product) {
     const related = await fetchRelatedProducts(product, 4);
+    const categoryTitle =
+      product.categoryTitle ?? getCategoryLabel(product.category);
     return (
       <SiteShell solidHeader inquiryProductName={product.name}>
+        <JsonLd
+          data={[
+            productJsonLd(product),
+            breadcrumbJsonLd([
+              { name: "Domů", path: "/" },
+              { name: "Produkty", path: "/produkty" },
+              {
+                name: categoryTitle,
+                path: `/produkty/${product.category}`,
+              },
+              {
+                name: product.name,
+                path: `/produkty/${getProductSlug(product)}`,
+              },
+            ]),
+          ]}
+        />
         <main>
           <ProductDetail product={product} related={related} />
         </main>
@@ -65,8 +101,26 @@ export default async function ProductsSlugPage({ params }: Props) {
 
   const category = categories.find((item) => item.slug === slug);
   if (category) {
+    const description = category.subtitle || getCategoryLabel(slug);
     return (
       <SiteShell solidHeader>
+        <JsonLd
+          data={[
+            collectionJsonLd({
+              name: category.title,
+              description,
+              path: `/produkty/${category.slug}`,
+            }),
+            breadcrumbJsonLd([
+              { name: "Domů", path: "/" },
+              { name: "Produkty", path: "/produkty" },
+              {
+                name: category.title,
+                path: `/produkty/${category.slug}`,
+              },
+            ]),
+          ]}
+        />
         <main>
           <ProductsListing
             lockedCategory={slug as CategorySlug}

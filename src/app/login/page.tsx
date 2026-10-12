@@ -6,6 +6,7 @@ import { Logo } from "@/components/logo";
 export const metadata: Metadata = {
   title: "Přihlášení - Obkladérie",
   description: "Administrace Obkladérie",
+  robots: { index: false, follow: false },
 };
 
 export default function LoginPage() {

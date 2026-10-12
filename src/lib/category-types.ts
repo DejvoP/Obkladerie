@@ -15,15 +15,15 @@ export const defaultCategoryTypes: Record<CategorySlug, string[]> = {
     "Strukturovaný povrch",
     "Mramorový efekt",
   ],
-  venkovni: ["Matný povrch", "Strukturovaný povrch"],
-  doplnky: ["Profil", "Sokl", "Spárování"],
+  "betonove-sterky": ["Matný povrch", "Strukturovaný povrch"],
+  "epoxidove-sterky": ["Profil", "Sokl", "Spárování"],
 };
 
 let workingTypes: Record<string, string[]> = {
   obklady: [...defaultCategoryTypes.obklady],
   dlazby: [...defaultCategoryTypes.dlazby],
-  venkovni: [...defaultCategoryTypes.venkovni],
-  doplnky: [...defaultCategoryTypes.doplnky],
+  "betonove-sterky": [...defaultCategoryTypes["betonove-sterky"]],
+  "epoxidove-sterky": [...defaultCategoryTypes["epoxidove-sterky"]],
 };
 
 export function getCategoryTypes(slug: string): string[] {

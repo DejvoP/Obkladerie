@@ -1,21 +1,41 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ArrowIcon } from "@/components/arrow-icon";
+import { JsonLd } from "@/components/json-ld";
 import { SiteShell } from "@/components/site-shell";
 import { fetchCategories } from "@/lib/db/catalog";
+import { breadcrumbJsonLd, buildMetadata, collectionJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Kategorie - Obkladérie",
-  description: "Všechny kategorie obkladů, dlažeb a doplňků Obkladérie.",
-};
+const TITLE = "Kategorie - Obkladérie";
+const DESCRIPTION =
+  "Všechny kategorie obkladů, dlažeb a doplňků Obkladérie.";
+
+export const metadata: Metadata = buildMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: "/katalog",
+});
 
 export default async function CatalogPage() {
   const categories = await fetchCategories();
 
   return (
     <SiteShell solidHeader>
+      <JsonLd
+        data={[
+          collectionJsonLd({
+            name: TITLE,
+            description: DESCRIPTION,
+            path: "/katalog",
+          }),
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Kategorie", path: "/katalog" },
+          ]),
+        ]}
+      />
       <main>
         <section className="bg-white pt-28 pb-20">
           <div className="mx-auto w-full max-w-content px-5 lg:px-8">

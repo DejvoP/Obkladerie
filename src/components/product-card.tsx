@@ -29,13 +29,14 @@ export function ProductCard({
       </h3>
       <p className="mt-1 text-sm text-muted">{product.kind}</p>
       {product.colors.length > 0 ? (
-        <div className="mt-3 flex gap-1.5">
-          {product.colors.map((color) => (
+        <div className="mt-3 flex gap-1.5" suppressHydrationWarning>
+          {product.colors.map((color, index) => (
             <span
-              key={color}
+              key={`${color}-${index}`}
               className="size-3.5 border border-line"
               style={{ backgroundColor: color }}
               aria-hidden
+              suppressHydrationWarning
             />
           ))}
         </div>

@@ -14,6 +14,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/produkty/venkovni",
+        destination: "/produkty/betonove-sterky",
+        permanent: true,
+      },
+      {
+        source: "/produkty/doplnky",
+        destination: "/produkty/epoxidove-sterky",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

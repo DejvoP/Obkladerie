@@ -8,6 +8,7 @@ export type AdminInquiry = {
   createdAt: string;
   message: string;
   productName?: string;
+  attachmentUrls?: string[];
   status: InquiryStatus;
   isNew: boolean;
 };

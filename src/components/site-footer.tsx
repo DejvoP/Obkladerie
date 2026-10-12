@@ -1,10 +1,38 @@
 import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 
-export function SiteFooter() {
+type FooterCategory = {
+  title: string;
+  slug: string;
+};
+
+type SiteFooterProps = {
+  categories?: FooterCategory[];
+};
+
+export function SiteFooter({ categories = [] }: SiteFooterProps) {
+  const productLinks =
+    categories.length > 0
+      ? categories.map((item) => ({
+          href: `/produkty/${item.slug}`,
+          label: item.title,
+        }))
+      : [
+          { href: "/produkty/obklady", label: "Obklady" },
+          { href: "/produkty/dlazby", label: "Dlažby" },
+          { href: "/produkty/betonove-sterky", label: "Betonové stěrky" },
+          { href: "/produkty/epoxidove-sterky", label: "Epoxidové stěrky" },
+        ];
+
+  const legalLinks = [
+    { href: "/cookies", label: "Cookies" },
+    { href: "/obchodni-podminky", label: "Obchodní podmínky" },
+    { href: "/ochrana-osobnich-udaju", label: "Ochrana osobních údajů" },
+  ];
+
   return (
     <footer id="kontakt" className="scroll-mt-24 bg-charcoal text-white">
-      <div className="mx-auto grid w-full max-w-content gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid w-full max-w-content gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <Reveal variant="up">
           <a href="/" className="inline-flex items-center" aria-label="Obkladérie">
             <Logo className="h-9 w-auto" variant="inverted" />
@@ -16,29 +44,28 @@ export function SiteFooter() {
         <Reveal variant="up" delay={80}>
           <p className="text-sm font-medium text-white">Produkty</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
-            <li>
-              <a href="/produkty/obklady" className="transition hover:text-accent">
-                Obklady
-              </a>
-            </li>
-            <li>
-              <a href="/produkty/dlazby" className="transition hover:text-accent">
-                Dlažby
-              </a>
-            </li>
-            <li>
-              <a href="/produkty/venkovni" className="transition hover:text-accent">
-                Venkovní dlažby
-              </a>
-            </li>
-            <li>
-              <a href="/produkty/doplnky" className="transition hover:text-accent">
-                Doplňky
-              </a>
-            </li>
+            {productLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="transition hover:text-accent">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </Reveal>
-        <Reveal variant="up" delay={160}>
+        <Reveal variant="up" delay={140}>
+          <p className="text-sm font-medium text-white">Právní informace</p>
+          <ul className="mt-4 space-y-2 text-sm text-dark-text">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="transition hover:text-accent">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal variant="up" delay={200}>
           <p className="text-sm font-medium text-white">Studio</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
             <li>
@@ -58,7 +85,7 @@ export function SiteFooter() {
             </li>
           </ul>
         </Reveal>
-        <Reveal variant="up" delay={240}>
+        <Reveal variant="up" delay={260}>
           <p className="text-sm font-medium text-white">Kontakt</p>
           <ul className="mt-4 space-y-2 text-sm text-dark-text">
             <li>RemodelTO s.r.o.</li>

@@ -47,16 +47,19 @@ export function ProductsListing({
     });
   }, [products]);
 
+  const categoryFromDb = lockedCategory
+    ? categories.find((item) => item.slug === lockedCategory)
+    : undefined;
   const title = lockedCategory
-    ? (categoryMeta[lockedCategory]?.title ??
-      categories.find((item) => item.slug === lockedCategory)?.title ??
+    ? (categoryFromDb?.title ??
+      categoryMeta[lockedCategory]?.title ??
       lockedCategory)
     : "Všechny produkty";
   const subtitle = lockedCategory
-    ? (categoryMeta[lockedCategory]?.description ??
-      categories.find((item) => item.slug === lockedCategory)?.subtitle ??
+    ? (categoryFromDb?.subtitle ??
+      categoryMeta[lockedCategory]?.description ??
       "")
-    : "Obklady, dlažby a doplňky na jednom místě";
+    : "Obklady, dlažby a stěrky na jednom místě";
 
   const filtered = useMemo(() => {
     const base = lockedCategory

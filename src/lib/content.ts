@@ -1,10 +1,10 @@
-export type CategorySlug = string;
+﻿export type CategorySlug = string;
 
 export const KNOWN_CATEGORY_SLUGS = [
   "obklady",
   "dlazby",
-  "venkovni",
-  "doplnky",
+  "betonove-sterky",
+  "epoxidove-sterky",
 ] as const;
 
 export const categoryMeta: Record<
@@ -17,15 +17,15 @@ export const categoryMeta: Record<
   },
   dlazby: {
     title: "Dlažby",
-    description: "Odolné povrchy pro interiér",
+    description: "Pro moderní a odolné prostory",
   },
-  venkovni: {
-    title: "Venkovní dlažby",
-    description: "Terasy, balkony a exteriér",
+  "betonove-sterky": {
+    title: "Betonové stěrky",
+    description: "Moderní stěrky pro interiér i exteriér",
   },
-  doplnky: {
-    title: "Doplňky",
-    description: "Lišty, profily a příslušenství",
+  "epoxidove-sterky": {
+    title: "Epoxidové stěrky",
+    description: "Odolné stěrky pro náročné povrchy",
   },
 };
 
@@ -40,21 +40,21 @@ export const catalog = [
   {
     title: "Dlažby",
     slug: "dlazby" as const,
-    subtitle: "Odolné povrchy pro interiér",
+    subtitle: "Pro moderní a odolné prostory",
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Venkovní dlažby",
-    slug: "venkovni" as const,
-    subtitle: "Terasy, balkony a exteriér",
+    title: "Betonové stěrky",
+    slug: "betonove-sterky" as const,
+    subtitle: "Moderní stěrky pro interiér i exteriér",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80",
   },
   {
-    title: "Doplňky",
-    slug: "doplnky" as const,
-    subtitle: "Lišty, profily a příslušenství",
+    title: "Epoxidové stěrky",
+    slug: "epoxidove-sterky" as const,
+    subtitle: "Odolné stěrky pro náročné povrchy",
     image:
       "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=900&q=80",
   },
@@ -201,7 +201,7 @@ export const products: Product[] = [
   {
     name: "Basalt Graphite",
     kind: "Venkovní dlažba · Matný povrch",
-    category: "venkovni",
+    category: "betonove-sterky",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80",
     price: "1 050 Kč/m²",
@@ -282,7 +282,7 @@ export const products: Product[] = [
   {
     name: "Sandstone Warm",
     kind: "Venkovní dlažba · Matný povrch",
-    category: "venkovni",
+    category: "betonove-sterky",
     image:
       "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80",
     price: "1 020 Kč/m²",
@@ -354,7 +354,7 @@ export const products: Product[] = [
   {
     name: "Terrace Basalt",
     kind: "Venkovní dlažba · Strukturovaný povrch",
-    category: "venkovni",
+    category: "betonove-sterky",
     image:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=700&q=80",
     price: "1 120 Kč/m²",
@@ -363,7 +363,7 @@ export const products: Product[] = [
   {
     name: "Outdoor Sand",
     kind: "Venkovní dlažba · Matný povrch",
-    category: "venkovni",
+    category: "betonove-sterky",
     image:
       "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=700&q=80",
     price: "980 Kč/m²",
@@ -372,7 +372,7 @@ export const products: Product[] = [
   {
     name: "Hliníková lišta",
     kind: "Doplněk · Profil",
-    category: "doplnky",
+    category: "epoxidove-sterky",
     image:
       "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=700&q=80",
     price: "189 Kč/ks",
@@ -381,7 +381,7 @@ export const products: Product[] = [
   {
     name: "Dilatační profil",
     kind: "Doplněk · Profil",
-    category: "doplnky",
+    category: "epoxidove-sterky",
     image:
       "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=700&q=80",
     price: "249 Kč/ks",
@@ -390,7 +390,7 @@ export const products: Product[] = [
   {
     name: "Soklová lišta Stone",
     kind: "Doplněk · Sokl",
-    category: "doplnky",
+    category: "epoxidove-sterky",
     image:
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=700&q=80",
     price: "320 Kč/m",
@@ -399,7 +399,7 @@ export const products: Product[] = [
   {
     name: "Spárovací hmota Soft",
     kind: "Doplněk · Spárování",
-    category: "doplnky",
+    category: "epoxidove-sterky",
     image:
       "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80",
     price: "159 Kč/kg",

@@ -55,6 +55,7 @@ function mapInquiry(row: {
   email: string;
   message: string;
   product_name?: string | null;
+  attachment_urls?: string[] | null;
   status: string;
   is_new: boolean;
   created_at: string;
@@ -70,6 +71,7 @@ function mapInquiry(row: {
     email: row.email,
     message: parsed.message,
     productName: parsed.productName,
+    attachmentUrls: row.attachment_urls?.filter(Boolean) ?? [],
     status: (row.status === "done" ? "done" : "pending") as InquiryStatus,
     isNew: row.is_new,
     createdAt: row.created_at,
@@ -143,13 +145,19 @@ export function AdminInquiriesProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const removeInquiry = useCallback(async (id: string) => {
+    const snapshot = inquiries;
     setInquiries((prev) => prev.filter((item) => item.id !== id));
     try {
       await deleteInquiry(id);
-    } catch {
-      // optimistic UI already updated
+    } catch (error) {
+      setInquiries(snapshot);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : "Smazání poptávky se nepovedlo.",
+      );
     }
-  }, []);
+  }, [inquiries]);
 
   const markAllDone = useCallback(async (ids: string[]) => {
     if (!ids.length) return;
@@ -169,13 +177,19 @@ export function AdminInquiriesProvider({ children }: { children: ReactNode }) {
 
   const removeAll = useCallback(async (ids: string[]) => {
     if (!ids.length) return;
+    const snapshot = inquiries;
     setInquiries((prev) => prev.filter((item) => !ids.includes(item.id)));
     try {
       await deleteInquiries(ids);
-    } catch {
-      // optimistic UI already updated
+    } catch (error) {
+      setInquiries(snapshot);
+      window.alert(
+        error instanceof Error
+          ? error.message
+          : "Smazání poptávek se nepovedlo.",
+      );
     }
-  }, []);
+  }, [inquiries]);
 
   const value = useMemo(
     () => ({

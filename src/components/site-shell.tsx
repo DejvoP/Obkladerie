@@ -1,3 +1,4 @@
+import { CookieBanner } from "@/components/cookie-banner";
 import { InquiryProvider } from "@/components/inquiry-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -29,7 +30,8 @@ export async function SiteShell({
           categories={categories}
         />
         {children}
-        <SiteFooter />
+        <SiteFooter categories={categories} />
+        <CookieBanner />
       </div>
     </InquiryProvider>
   );

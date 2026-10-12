@@ -5,6 +5,7 @@ import { AdminSidebar } from "@/components/admin-sidebar";
 
 export const metadata: Metadata = {
   title: "Administrace - Obkladérie",
+  robots: { index: false, follow: false },
 };
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
