@@ -24,7 +24,7 @@ export function About() {
           <div className="relative aspect-[4/5] overflow-hidden bg-charcoal sm:aspect-[5/6] lg:aspect-square">
             <Image
               src="/about.png"
-              alt="Kvalitní keramika Obkladérie"
+              alt="Kvalitní keramika Obkladerie"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

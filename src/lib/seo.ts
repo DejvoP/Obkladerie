@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import type { Product } from "@/lib/content";
 import { getProductSlug } from "@/lib/content";
 
-export const SITE_NAME = "Obkladérie";
+export const SITE_NAME = "Obkladerie";
 
 /** Keep existing root title/description strings unchanged. */
-export const ROOT_TITLE = "Obkladérie - prémiové obklady za outletové ceny";
+export const ROOT_TITLE = "Obkladerie - prémiové obklady za outletové ceny";
 export const ROOT_DESCRIPTION =
   "Kvalitní keramika od renomovaných italských výrobců z předchozích kolekcí. Stejná kvalita, výrazně lepší cena. Dodání 7-14 dní.";
 

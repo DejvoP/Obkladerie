@@ -203,7 +203,7 @@ export function SiteHeader({
               solid ? "border-b border-line" : ""
             }`}
           >
-          <a href="/" className="inline-flex items-center" aria-label="Obkladérie">
+          <a href="/" className="inline-flex items-center" aria-label="Obkladerie">
             <Logo
               className="h-9 w-auto"
               priority

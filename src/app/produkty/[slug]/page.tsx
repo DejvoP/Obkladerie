@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const product = await fetchProductBySlug(slug);
   if (product) {
-    const title = `${product.name} - Obkladérie`;
+    const title = `${product.name} - Obkladerie`;
     const description =
       product.description?.trim() ||
       `${product.kind}. ${product.price}`;
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = categories.find((item) => item.slug === slug);
   if (category) {
     return buildMetadata({
-      title: `${category.title} - Obkladérie`,
+      title: `${category.title} - Obkladerie`,
       description: category.subtitle || getCategoryLabel(slug),
       path: `/produkty/${category.slug}`,
       image: category.image || "/hero.png",
@@ -53,8 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return buildMetadata({
-    title: "Produkty - Obkladérie",
-    description: "Kompletní nabídka Obkladérie.",
+    title: "Produkty - Obkladerie",
+    description: "Kompletní nabídka Obkladerie.",
     path: `/produkty/${slug}`,
     noIndex: true,
   });

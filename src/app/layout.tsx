@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   publisher: "RemodelTO s.r.o.",
   category: "home improvement",
   keywords: [
-    "Obkladérie",
+    "Obkladerie",
     "obklady",
     "dlažby",
     "italská keramika",

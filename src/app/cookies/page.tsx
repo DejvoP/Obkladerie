@@ -3,8 +3,8 @@ import { LegalPage } from "@/components/legal-page";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cookies - Obkladérie",
-  description: "Informace o používání cookies na webu Obkladérie.",
+  title: "Cookies - Obkladerie",
+  description: "Informace o používání cookies na webu Obkladerie.",
   path: "/cookies",
 });
 
@@ -12,7 +12,7 @@ export default function CookiesPage() {
   return (
     <LegalPage title="Cookies">
       <p>
-        Na webu Obkladérie používáme pouze technicky nezbytné cookies, které jsou
+        Na webu Obkladerie používáme pouze technicky nezbytné cookies, které jsou
         potřeba pro základní fungování stránky (například zapamatování volby
         cookies nebo přihlášení do administrace).
       </p>

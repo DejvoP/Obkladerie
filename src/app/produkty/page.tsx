@@ -7,9 +7,9 @@ import { breadcrumbJsonLd, buildMetadata, collectionJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const TITLE = "Všechny produkty - Obkladérie";
+const TITLE = "Všechny produkty - Obkladerie";
 const DESCRIPTION =
-  "Kompletní nabídka obkladů, dlažeb a doplňků Obkladérie.";
+  "Kompletní nabídka obkladů, dlažeb a doplňků Obkladerie.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,

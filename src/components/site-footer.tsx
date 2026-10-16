@@ -34,7 +34,7 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
     <footer id="kontakt" className="scroll-mt-24 bg-charcoal text-white">
       <div className="mx-auto grid w-full max-w-content gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <Reveal variant="up">
-          <a href="/" className="inline-flex items-center" aria-label="Obkladérie">
+          <a href="/" className="inline-flex items-center" aria-label="Obkladerie">
             <Logo className="h-9 w-auto" variant="inverted" />
           </a>
           <p className="mt-4 max-w-xs text-sm leading-6 text-dark-text">
@@ -112,7 +112,7 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
           delay={100}
           className="flex items-center justify-between gap-4 border-t border-white/10 py-5 text-xs text-dark-text"
         >
-          <p>© 2026 Obkladérie. Všechna práva vyhrazena.</p>
+          <p>© 2026 Obkladerie. Všechna práva vyhrazena.</p>
           <a
             href="https://www.rezit.cz"
             target="_blank"

@@ -44,7 +44,7 @@ async function notifyAdminEmail(payload: {
       body: JSON.stringify({
         from:
           process.env.INQUIRY_FROM_EMAIL ||
-          "Obkladérie <onboarding@resend.dev>",
+          "Obkladerie <onboarding@resend.dev>",
         to: [to],
         subject: payload.productName
           ? `Poptávka - ${payload.productName}`

@@ -3,8 +3,8 @@ import { LegalPage } from "@/components/legal-page";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Obchodní podmínky - Obkladérie",
-  description: "Obchodní podmínky prodejce Obkladérie / RemodelTO s.r.o.",
+  title: "Obchodní podmínky - Obkladerie",
+  description: "Obchodní podmínky prodejce Obkladerie / RemodelTO s.r.o.",
   path: "/obchodni-podminky",
 });
 
@@ -14,7 +14,7 @@ export default function TermsPage() {
       <p>
         Tyto obchodní podmínky upravují vztahy mezi společností RemodelTO s.r.o.,
         IČO 21048533 (dále jen „prodávající“), a zákazníkem při poptávce a nákupu
-        zboží nabízeného na webu Obkladérie.
+        zboží nabízeného na webu Obkladerie.
       </p>
       <h2>Poptávka a nabídka</h2>
       <p>

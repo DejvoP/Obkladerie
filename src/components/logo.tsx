@@ -13,12 +13,14 @@ export function Logo({
   variant = "default",
 }: LogoProps) {
   const src =
-    variant === "inverted" ? "/obkladerielogo2.webp" : "/obkladerielogo.webp";
+    variant === "inverted"
+      ? "/obkladerielogosvetle2.webp"
+      : "/obkladerielogotmave.webp";
 
   return (
     <Image
       src={src}
-      alt="Obkladérie"
+      alt="Obkladerie"
       width={280}
       height={56}
       priority={priority}

@@ -172,7 +172,7 @@ export function ProductDetail({
 
             <p className="mt-6 text-base leading-8 text-charcoal/80">
               {product.description?.trim() ||
-                `Série ${product.name} patří mezi ${categoryTitle.toLocaleLowerCase("cs")} Obkladérie. ${product.kind} dodá prostoru čistý výraz a snadno se kombinuje s ostatními povrchy v katalogu.`}
+                `Série ${product.name} patří mezi ${categoryTitle.toLocaleLowerCase("cs")} Obkladerie. ${product.kind} dodá prostoru čistý výraz a snadno se kombinuje s ostatními povrchy v katalogu.`}
             </p>
 
             <div className="mt-8">

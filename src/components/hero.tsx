@@ -11,7 +11,7 @@ export function Hero() {
     <section className="relative h-svh w-full overflow-hidden">
       <Image
         src="/hero.png"
-        alt="Prémiové obklady a dlažby Obkladérie"
+        alt="Prémiové obklady a dlažby Obkladerie"
         fill
         priority
         sizes="100vw"

@@ -8,9 +8,9 @@ import { breadcrumbJsonLd, buildMetadata, collectionJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
-const TITLE = "Kategorie - Obkladérie";
+const TITLE = "Kategorie - Obkladerie";
 const DESCRIPTION =
-  "Všechny kategorie obkladů, dlažeb a doplňků Obkladérie.";
+  "Všechny kategorie obkladů, dlažeb a doplňků Obkladerie.";
 
 export const metadata: Metadata = buildMetadata({
   title: TITLE,
@@ -53,7 +53,7 @@ export default async function CatalogPage() {
                   Kategorie
                 </h1>
                 <p className="mt-3 text-base text-muted">
-                  Kompletní přehled kategorií z katalogu Obkladérie
+                  Kompletní přehled kategorií z katalogu Obkladerie
                 </p>
               </div>
               <p className="shrink-0 text-sm text-muted">

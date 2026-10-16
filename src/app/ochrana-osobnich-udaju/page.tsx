@@ -3,9 +3,9 @@ import { LegalPage } from "@/components/legal-page";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Ochrana osobních údajů - Obkladérie",
+  title: "Ochrana osobních údajů - Obkladerie",
   description:
-    "Zásady ochrany osobních údajů webu Obkladérie / RemodelTO s.r.o.",
+    "Zásady ochrany osobních údajů webu Obkladerie / RemodelTO s.r.o.",
   path: "/ochrana-osobnich-udaju",
 });
 

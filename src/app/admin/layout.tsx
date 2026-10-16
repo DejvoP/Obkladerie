@@ -4,7 +4,7 @@ import { AdminInquiriesProvider } from "@/components/admin-inquiries-provider";
 import { AdminSidebar } from "@/components/admin-sidebar";
 
 export const metadata: Metadata = {
-  title: "Administrace - Obkladérie",
+  title: "Administrace - Obkladerie",
   robots: { index: false, follow: false },
 };
 

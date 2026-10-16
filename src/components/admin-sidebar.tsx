@@ -62,7 +62,7 @@ export function AdminSidebar() {
   return (
     <>
       <div className="flex h-14 shrink-0 items-center justify-between border-b border-line bg-white px-4 md:hidden">
-        <a href="/" className="inline-flex" aria-label="Obkladérie">
+        <a href="/" className="inline-flex" aria-label="Obkladerie">
           <Logo className="h-7 w-auto" />
         </a>
         <button
@@ -102,7 +102,7 @@ export function AdminSidebar() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-line px-5 py-6">
-          <a href="/" className="inline-flex" aria-label="Obkladérie">
+          <a href="/" className="inline-flex" aria-label="Obkladerie">
             <Logo className="h-8 w-auto" />
           </a>
           <button

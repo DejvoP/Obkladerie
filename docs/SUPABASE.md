@@ -1,4 +1,4 @@
-# Supabase setup (Obkladérie)
+# Supabase setup (Obkladerie)
 
 ## 1. Vytvoř projekt na https://supabase.com
 

@@ -4,8 +4,8 @@ import { LoginForm } from "@/components/login-form";
 import { Logo } from "@/components/logo";
 
 export const metadata: Metadata = {
-  title: "Přihlášení - Obkladérie",
-  description: "Administrace Obkladérie",
+  title: "Přihlášení - Obkladerie",
+  description: "Administrace Obkladerie",
   robots: { index: false, follow: false },
 };
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
       <div className="relative z-10 mx-auto flex w-full max-w-content flex-1 flex-col justify-center px-5 py-16 lg:px-8">
         <div className="mx-auto w-full max-w-md border border-line bg-white p-6 sm:p-8">
           <div className="flex justify-center">
-            <a href="/" className="inline-flex" aria-label="Obkladérie">
+            <a href="/" className="inline-flex" aria-label="Obkladerie">
               <Logo className="h-9 w-auto" priority />
             </a>
           </div>

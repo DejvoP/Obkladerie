@@ -1,4 +1,4 @@
--- Obkladérie schema for Supabase Postgres
+-- Obkladerie schema for Supabase Postgres
 -- Run in Supabase SQL Editor (or via supabase db push)
 
 create extension if not exists "pgcrypto";
