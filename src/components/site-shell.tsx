@@ -1,4 +1,3 @@
-import { CookieBanner } from "@/components/cookie-banner";
 import { InquiryProvider } from "@/components/inquiry-provider";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -31,7 +30,6 @@ export async function SiteShell({
         />
         <div className="flex flex-1 flex-col">{children}</div>
         <SiteFooter categories={categories} />
-        <CookieBanner />
       </div>
     </InquiryProvider>
   );

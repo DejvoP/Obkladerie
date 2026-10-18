@@ -13,14 +13,14 @@ export default function CookiesPage() {
     <LegalPage title="Cookies">
       <p>
         Na webu Obkladerie používáme pouze technicky nezbytné cookies, které jsou
-        potřeba pro základní fungování stránky (například zapamatování volby
-        cookies nebo přihlášení do administrace).
+        potřeba pro základní fungování stránky (například přihlášení do
+        administrace).
       </p>
       <h2>Jaké cookies používáme</h2>
       <ul>
         <li>
           <strong className="font-medium text-charcoal">Nezbytné</strong> —
-          zajišťují chod webu a zapamatování vaší volby ohledně cookies.
+          zajišťují chod webu a zabezpečené přihlášení do administrace.
         </li>
       </ul>
       <p>
