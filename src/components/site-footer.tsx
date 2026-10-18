@@ -110,7 +110,7 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
         <Reveal
           variant="fade"
           delay={100}
-          className="flex items-center justify-between gap-4 border-t border-white/10 py-5 text-xs text-dark-text"
+          className="flex items-center justify-between gap-4 py-5 text-xs text-dark-text"
         >
           <p>© 2026 Obkladerie. Všechna práva vyhrazena.</p>
           <a

@@ -127,7 +127,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body
-        className="min-h-full bg-white font-sans text-charcoal"
+        className="min-h-svh bg-white font-sans text-charcoal"
         suppressHydrationWarning
       >
         <Script

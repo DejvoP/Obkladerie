@@ -8,6 +8,10 @@ const KIND_PREFIX: Record<string, string> = {
   "epoxidove-sterky": "Epoxidová stěrka",
 };
 
+export type AdminProductImageSlot =
+  | { kind: "remote"; url: string }
+  | { kind: "file" };
+
 export type AdminProductInput = {
   id?: string;
   name: string;
@@ -19,10 +23,12 @@ export type AdminProductInput = {
   featured: boolean;
   format?: string | null;
   colors: { hex: string; name: string | null; imageUrl?: string | null }[];
-  /** Existing remote URLs to keep */
+  /** Existing remote URLs to keep (legacy; prefer orderedImageSlots) */
   existingImageUrls: string[];
-  /** New local files to upload */
+  /** New local files to upload (same order as file slots) */
   newImageFiles: File[];
+  /** Gallery slots in display order */
+  orderedImageSlots?: AdminProductImageSlot[];
 };
 
 export type AdminCategoryInput = {
@@ -139,10 +145,7 @@ export async function saveProduct(input: AdminProductInput) {
     .eq("name", input.typeName)
     .maybeSingle();
 
-  const uploaded = await Promise.all(
-    input.newImageFiles.map((file) => uploadMedia(file, "products")),
-  );
-  const imageUrls = [...input.existingImageUrls, ...uploaded].filter(Boolean);
+  const imageUrls = await resolveProductImageUrls(input);
   if (imageUrls.length === 0) {
     throw new Error("Přidej alespoň jeden obrázek.");
   }
@@ -216,11 +219,11 @@ export async function saveProduct(input: AdminProductInput) {
         product_id: productId,
         hex: color.hex,
         name: color.name,
-        image_url:
-          color.imageUrl ??
-          imageUrls[index] ??
-          imageUrls[0] ??
-          null,
+        image_url: resolvePublicImageUrl(
+          color.imageUrl,
+          imageUrls,
+          index,
+        ),
         sort_order: index,
       })),
     );
@@ -243,9 +246,48 @@ export async function saveProduct(input: AdminProductInput) {
     colorItems: input.colors.map((color, index) => ({
       hex: color.hex,
       name: color.name,
-      imageUrl: color.imageUrl ?? imageUrls[index] ?? imageUrls[0] ?? null,
+      imageUrl: resolvePublicImageUrl(color.imageUrl, imageUrls, index),
     })),
   };
+}
+
+function isPersistableImageUrl(url: string | null | undefined): url is string {
+  if (!url) return false;
+  if (url.startsWith("blob:") || url.startsWith("data:")) return false;
+  return url.startsWith("http://") || url.startsWith("https://") || url.startsWith("/");
+}
+
+function resolvePublicImageUrl(
+  colorImageUrl: string | null | undefined,
+  imageUrls: string[],
+  index: number,
+) {
+  if (isPersistableImageUrl(colorImageUrl)) return colorImageUrl;
+  return imageUrls[index] ?? imageUrls[0] ?? null;
+}
+
+async function resolveProductImageUrls(input: AdminProductInput) {
+  const uploaded = await Promise.all(
+    input.newImageFiles.map((file) => uploadMedia(file, "products")),
+  );
+
+  if (input.orderedImageSlots?.length) {
+    const urls: string[] = [];
+    let uploadIndex = 0;
+    for (const slot of input.orderedImageSlots) {
+      if (slot.kind === "remote") {
+        if (isPersistableImageUrl(slot.url)) urls.push(slot.url);
+      } else {
+        const url = uploaded[uploadIndex++];
+        if (url) urls.push(url);
+      }
+    }
+    return urls;
+  }
+
+  return [...input.existingImageUrls, ...uploaded].filter((url) =>
+    isPersistableImageUrl(url),
+  );
 }
 
 export async function deleteProduct(id: string) {

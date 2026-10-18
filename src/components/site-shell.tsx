@@ -23,13 +23,13 @@ export async function SiteShell({
 
   return (
     <InquiryProvider initialProductName={inquiryProductName}>
-      <div className="min-h-full max-w-[100vw] overflow-x-clip bg-white">
+      <div className="flex min-h-svh max-w-[100vw] flex-col overflow-x-clip bg-white">
         <SiteHeader
           solid={solidHeader}
           products={products}
           categories={categories}
         />
-        {children}
+        <div className="flex flex-1 flex-col">{children}</div>
         <SiteFooter categories={categories} />
         <CookieBanner />
       </div>

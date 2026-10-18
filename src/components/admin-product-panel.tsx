@@ -300,23 +300,31 @@ export function AdminProductPanel({
         throw new Error("Zadej platnou cenu.");
       }
 
+      const orderedImageSlots = images.map((item) =>
+        item.file
+          ? ({ kind: "file" as const })
+          : ({ kind: "remote" as const, url: item.preview }),
+      );
       const existingImageUrls = images
-        .filter((item) => !item.file)
+        .filter((item) => !item.file && !item.preview.startsWith("blob:"))
         .map((item) => item.preview);
       const newImageFiles = images
         .map((item) => item.file)
         .filter((file): file is File => Boolean(file));
 
-      const colorPayload = colors.map((hex, index) => ({
-        hex,
-        name: COLOR_NAME_BY_HEX[hex] ?? null,
-        imageUrl:
-          [...images]
-            .map((item) => item.preview)
-            .filter(Boolean)[index] ??
-          images[0]?.preview ??
-          null,
-      }));
+      // Color image = gallery image at same index (after upload). Never send blob: URLs.
+      const colorPayload = colors.map((hex, index) => {
+        const slot = images[index];
+        const remoteUrl =
+          slot && !slot.file && !slot.preview.startsWith("blob:")
+            ? slot.preview
+            : null;
+        return {
+          hex,
+          name: COLOR_NAME_BY_HEX[hex] ?? null,
+          imageUrl: remoteUrl,
+        };
+      });
 
       const saved = await saveProduct({
         id: product?.id,
@@ -331,6 +339,7 @@ export function AdminProductPanel({
         colors: colorPayload,
         existingImageUrls,
         newImageFiles,
+        orderedImageSlots,
       });
 
       onSaved?.({

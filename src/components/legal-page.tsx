@@ -9,9 +9,9 @@ type LegalPageProps = {
 export function LegalPage({ title, children }: LegalPageProps) {
   return (
     <SiteShell solidHeader>
-      <main>
-        <section className="bg-white pt-28 pb-20">
-          <div className="mx-auto w-full max-w-3xl px-5 lg:px-8">
+      <main className="flex flex-1 flex-col">
+        <section className="flex flex-1 flex-col bg-white pt-28 pb-20">
+          <div className="mx-auto w-full max-w-content px-5 lg:px-8">
             <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-muted">
               <a href="/" className="transition hover:text-charcoal">
                 Domů

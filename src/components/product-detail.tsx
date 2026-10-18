@@ -59,7 +59,14 @@ export function ProductDetail({
 
   const currentImage = useMemo(() => {
     const color = colorItems[activeColor];
-    if (color?.imageUrl) return color.imageUrl;
+    const colorUrl = color?.imageUrl;
+    if (
+      colorUrl &&
+      !colorUrl.startsWith("blob:") &&
+      !colorUrl.startsWith("data:")
+    ) {
+      return colorUrl;
+    }
     if (gallery[activeColor]) return gallery[activeColor];
     return gallery[0] ?? product.image;
   }, [activeColor, colorItems, gallery, product.image]);
