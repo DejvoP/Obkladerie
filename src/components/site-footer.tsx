@@ -25,7 +25,6 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
         ];
 
   const legalLinks = [
-    { href: "/cookies", label: "Cookies" },
     { href: "/obchodni-podminky", label: "Obchodní podmínky" },
     { href: "/ochrana-osobnich-udaju", label: "Ochrana osobních údajů" },
   ];
