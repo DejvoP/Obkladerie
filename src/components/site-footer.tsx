@@ -105,11 +105,11 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
           </ul>
         </Reveal>
       </div>
-      <div className="mx-auto w-full max-w-content border-t border-white/15 px-5 lg:px-8">
+      <div className="mx-auto w-full max-w-content px-5 lg:px-8">
         <Reveal
           variant="fade"
           delay={100}
-          className="flex items-center justify-between gap-4 py-5 text-xs text-dark-text"
+          className="flex items-center justify-between gap-4 border-t border-white/15 py-5 text-xs text-dark-text"
         >
           <p>© 2026 Obkladerie. Všechna práva vyhrazena.</p>
           <a
