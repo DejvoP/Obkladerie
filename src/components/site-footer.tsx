@@ -105,7 +105,7 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
           </ul>
         </Reveal>
       </div>
-      <div className="mx-auto w-full max-w-content px-5 lg:px-8">
+      <div className="mx-auto w-full max-w-content border-t border-white/15 px-5 lg:px-8">
         <Reveal
           variant="fade"
           delay={100}
