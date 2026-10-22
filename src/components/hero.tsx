@@ -8,7 +8,7 @@ export function Hero() {
   const { openInquiry } = useInquiry();
 
   return (
-    <section className="relative h-svh w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden md:h-svh">
       <Image
         src="/hero.png"
         alt="Prémiové obklady a dlažby Obkladerie"
@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-charcoal/10" />
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-content flex-col justify-center px-5 py-24 sm:py-16 lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-content flex-col px-5 py-12 md:h-full md:justify-center md:py-16 lg:px-8">
         <Reveal
           as="h1"
           variant="up"
