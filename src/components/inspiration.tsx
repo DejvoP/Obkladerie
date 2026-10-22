@@ -18,7 +18,7 @@ export function Inspiration() {
               alt="Outletová keramika prémiové kvality"
               fill
               sizes="100vw"
-              className="object-cover"
+              className="object-cover scale-x-[-1] md:scale-x-100"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-charcoal/85 via-charcoal/55 to-charcoal/20" />
 

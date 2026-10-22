@@ -13,7 +13,7 @@ export function ProductCard({
   return (
     <a
       href={`/produkty/${getProductSlug(product)}`}
-      className="group block"
+      className="group block min-w-0"
     >
       <div className="relative aspect-square overflow-hidden bg-soft">
         <Image
@@ -24,10 +24,10 @@ export function ProductCard({
           className="object-cover transition duration-500 group-hover:scale-[1.03]"
         />
       </div>
-      <h3 className="mt-4 text-base font-medium text-charcoal sm:text-lg">
+      <h3 className="mt-4 truncate text-base font-medium text-charcoal sm:text-lg">
         {product.name}
       </h3>
-      <p className="mt-1 text-sm text-muted">{product.kind}</p>
+      <p className="mt-1 truncate text-sm text-muted">{product.kind}</p>
       {product.colors.length > 0 ? (
         <div className="mt-3 flex gap-1.5" suppressHydrationWarning>
           {product.colors.map((color, index) => (

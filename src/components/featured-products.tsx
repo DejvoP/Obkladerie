@@ -37,6 +37,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
               key={product.id ?? getProductSlug(product)}
               variant="up"
               delay={index * 80}
+              className={index >= 4 ? "hidden md:block" : undefined}
             >
               <ProductCard product={product} />
             </Reveal>
