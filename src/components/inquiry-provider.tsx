@@ -369,7 +369,7 @@ export function InquiryProvider({
                     <button
                       type="button"
                       onClick={closeInquiry}
-                      className="px-4 py-2 text-sm text-muted"
+                      className="border border-charcoal bg-transparent px-5 py-2.5 text-sm font-medium text-charcoal transition hover:bg-charcoal hover:text-white"
                     >
                       Zavřít
                     </button>
@@ -434,7 +434,7 @@ export function InquiryProvider({
                         setError("");
                         setStep(1);
                       }}
-                      className="px-4 py-2 text-sm text-muted"
+                      className="border border-charcoal bg-transparent px-5 py-2.5 text-sm font-medium text-charcoal transition hover:bg-charcoal hover:text-white"
                     >
                       Zpět
                     </button>
