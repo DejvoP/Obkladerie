@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-charcoal/10" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-content flex-col px-5 py-12 md:h-full md:justify-center md:py-16 lg:px-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-content flex-col px-5 pt-28 pb-12 md:h-full md:justify-center md:py-16 lg:px-8">
         <Reveal
           as="h1"
           variant="up"
