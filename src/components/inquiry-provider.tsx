@@ -313,7 +313,7 @@ export function InquiryProvider({
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       rows={4}
-                      placeholder="Jaký prostor chystáte? Rozměry, styl, materiály…"
+                      placeholder="Jaký prostor chystáte? Pošlete nám fotografii toho, co hledáte, a my vám najdeme levnější variantu ve stejném stylu."
                       className="resize-none border border-line bg-white px-4 py-3 text-sm outline-none focus:border-accent"
                     />
 
