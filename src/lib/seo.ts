@@ -91,7 +91,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: getSiteUrl(),
     logo: absoluteUrl("/favicon.png"),
-    email: "info@remodelto.cz",
+    email: "info@obkladerie.cz",
     telephone: "+420606167019",
     sameAs: [],
     address: {
@@ -103,7 +103,7 @@ export function organizationJsonLd() {
         "@type": "ContactPoint",
         telephone: "+420606167019",
         contactType: "customer service",
-        email: "info@remodelto.cz",
+        email: "info@obkladerie.cz",
         availableLanguage: ["Czech"],
       },
     ],

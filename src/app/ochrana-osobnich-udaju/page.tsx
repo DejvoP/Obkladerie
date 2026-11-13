@@ -14,7 +14,7 @@ export default function PrivacyPage() {
     <LegalPage title="Ochrana osobních údajů">
       <p>
         Správcem osobních údajů je RemodelTO s.r.o., IČO 21048533, e-mail{" "}
-        <a href="mailto:info@remodelto.cz">info@remodelto.cz</a>.
+        <a href="mailto:info@obkladerie.cz">info@obkladerie.cz</a>.
       </p>
       <h2>Jaké údaje zpracováváme</h2>
       <p>
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
       <p>
         Máte právo na přístup, opravu, výmaz, omezení zpracování a vznesení
         námitky. Žádost můžete zaslat na{" "}
-        <a href="mailto:info@remodelto.cz">info@remodelto.cz</a>.
+        <a href="mailto:info@obkladerie.cz">info@obkladerie.cz</a>.
       </p>
     </LegalPage>
   );

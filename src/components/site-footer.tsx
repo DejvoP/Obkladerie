@@ -96,10 +96,10 @@ export function SiteFooter({ categories = [] }: SiteFooterProps) {
             </li>
             <li>
               <a
-                href="mailto:info@remodelto.cz"
+                href="mailto:info@obkladerie.cz"
                 className="transition hover:text-accent"
               >
-                info@remodelto.cz
+                info@obkladerie.cz
               </a>
             </li>
           </ul>

@@ -29,7 +29,7 @@ export default function TermsPage() {
       <h2>Kontakt</h2>
       <p>
         RemodelTO s.r.o. · IČO 21048533 ·{" "}
-        <a href="mailto:info@remodelto.cz">info@remodelto.cz</a> ·{" "}
+        <a href="mailto:info@obkladerie.cz">info@obkladerie.cz</a> ·{" "}
         <a href="tel:+420606167019">+420 606 167 019</a>
       </p>
     </LegalPage>
